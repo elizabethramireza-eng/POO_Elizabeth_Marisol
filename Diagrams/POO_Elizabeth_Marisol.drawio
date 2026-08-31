@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="BOeMu84tnxop_Bf1t2eB">
+    <mxGraphModel dx="1406" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="swipe;html=1;whiteSpace=wrap;fillColor=#EDF2F7;strokeColor=#2B6CB0;align=center;verticalAlign=top;" value="&lt;b&gt;Autor&lt;/b&gt;&lt;hr/&gt;- idAutor: String&lt;br/&gt;- nombre: String&lt;br/&gt;- nacionalidad: String&lt;hr/&gt;+ agregarLibroEscrito(libro: Libro): void&lt;br/&gt;+ obtenerObraCompleta(): List&amp;lt;Libro&amp;gt;" vertex="1">
+          <mxGeometry height="130" width="240" x="80" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="swipe;html=1;whiteSpace=wrap;fillColor=#EDF2F7;strokeColor=#2B6CB0;align=center;verticalAlign=top;" value="&lt;b&gt;&amp;lt;&amp;lt;Abstract&amp;gt;&amp;gt;&lt;br/&gt;Libro&lt;/b&gt;&lt;hr/&gt;# isbn: String&lt;br/&gt;# titulo: String&lt;br/&gt;# anioPublicacion: int&lt;br/&gt;# disponible: boolean&lt;hr/&gt;+ obtenerInformacion(): String {abstract}&lt;br/&gt;+ estaDisponible(): boolean&lt;br/&gt;+ cambiarEstadoDisponibilidad(e: boolean)" vertex="1">
+          <mxGeometry height="160" width="260" x="440" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_autor_libro" edge="1" parent="1" source="2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;startArrow=diamond;startFill=0;strokeColor=#2B6CB0;" target="3" value="0..*">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="140" as="sourcePoint" />
+            <mxPoint x="440" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4" parent="1" style="swipe;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#2B6CB0;align=center;verticalAlign=top;" value="&lt;b&gt;LibroFisico&lt;/b&gt;&lt;hr/&gt;- ubicacionEstante: String&lt;br/&gt;- estadoConservacion: String&lt;hr/&gt;+ obtenerInformacion(): String&lt;br/&gt;+ calcularDiasPrestamo(): int" vertex="1">
+          <mxGeometry height="130" width="220" x="320" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="swipe;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#2B6CB0;align=center;verticalAlign=top;" value="&lt;b&gt;LibroDigital&lt;/b&gt;&lt;hr/&gt;- formatoArchivo: String&lt;br/&gt;- tamanoMB: double&lt;br/&gt;- urlDescarga: String&lt;hr/&gt;+ obtenerInformacion(): String&lt;br/&gt;+ calcularDiasPrestamo(): int&lt;br/&gt;+ descargar(): void" vertex="1">
+          <mxGeometry height="140" width="220" x="600" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_h1" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;strokeColor=#2B6CB0;" target="3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_h2" edge="1" parent="1" source="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;strokeColor=#2B6CB0;" target="3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="swipe;html=1;whiteSpace=wrap;fillColor=#EDF2F7;strokeColor=#2B6CB0;align=center;verticalAlign=top;" value="&lt;b&gt;Prestamo&lt;/b&gt;&lt;hr/&gt;- idPrestamo: String&lt;br/&gt;- fechaPrestamo: Date&lt;br/&gt;- fechaDevolucionEsperada: Date&lt;br/&gt;- fechaDevolucionReal: Date&lt;hr/&gt;+ registrarDevolucion(): void&lt;br/&gt;+ estaVencido(): boolean&lt;br/&gt;+ calcularMulta(): double" vertex="1">
+          <mxGeometry height="150" width="240" x="320" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="swipe;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#2B6CB0;align=center;verticalAlign=top;" value="&lt;b&gt;DetallePrestamo&lt;/b&gt;&lt;hr/&gt;- diasConcedidos: int&lt;br/&gt;- tarifaDiariaMulta: double&lt;hr/&gt;+ calcularSubtotal(): double" vertex="1">
+          <mxGeometry height="120" width="200" x="40" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_comp" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;startArrow=diamond;startFill=1;strokeColor=#2B6CB0;" target="7" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_prestamo_libro" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;strokeColor=#2B6CB0;" target="4" value="1..*">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="swipe;html=1;whiteSpace=wrap;fillColor=#EDF2F7;strokeColor=#2B6CB0;align=center;verticalAlign=top;" value="&lt;b&gt;Usuario&lt;/b&gt;&lt;hr/&gt;- idUsuario: String&lt;br/&gt;- nombre: String&lt;br/&gt;- email: String&lt;hr/&gt;+ solicitarPrestamo(): boolean" vertex="1">
+          <mxGeometry height="120" width="220" x="680" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_prestamo_usuario" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;strokeColor=#2B6CB0;" target="8" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
