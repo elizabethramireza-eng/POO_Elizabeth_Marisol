@@ -30,7 +30,7 @@ El sistema está diseñado para resolver las necesidades operativas de una bibli
 
 A continuación se presenta la representación visual de la arquitectura del sistema:
 
-![Diagrama de Clases UML](./Diagrams/POO_Elizabeth_Marisol.png)
+![Diagrama de Clases UML](./Diagrams/POO_Elizabeth_Marisol.drawio.png)
 
 *(Si la imagen no carga directamente, puedes encontrar el archivo `.png` dentro de la carpeta `/Diagrams`).*
 
