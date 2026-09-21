@@ -61,3 +61,36 @@ ea1-poo-biblioteca/
 └── diagramas/
     ├── POO_Elizabeth_Marisol.drawio
     └── POO_Elizabeth_Marisol.png
+
+# Sistema de Gestión de Biblioteca - Actividad Evaluativa 2 (EA2)
+
+**Asignatura:** Programación Orientada a Objetos II - Avanzada  
+**Institución:** Institución Universitaria Digital de Antioquia (IU Digital)  
+**Grupo:** Grupo 6  
+
+## Integrantes
+- Elizabeth Ramírez Agudelo
+- Marisol Ramírez Agudelo
+- Boris Alberto Salle
+
+---
+
+## Descripción del Proyecto
+Implementación en lenguaje Java del modelo de dominio del Sistema de Biblioteca diseñado en la Actividad Evaluativa 1 (UML). El sistema gestiona el catálogo de libros físicos y digitales, registro de autores, préstamos a usuarios y notificaciones.
+
+---
+
+## Aplicación de Pilares POO
+1. **Encapsulamiento:** Atributos privados (`private`) en todas las entidades, expuestos mediante getters/setters.
+2. **Herencia:** Clase abstracta `Libro` extendida por `LibroFisico` y `LibroDigital`.
+3. **Polimorfismo:** Colección `List<Libro>` que administra dinámicamente instancias de `LibroFisico` y `LibroDigital`, invocando `obtenerInformacion()` y `calcularDiasPrestamo()` según la subclase en tiempo de ejecución.
+4. **Sobrecarga y Sobrescritura:**
+   - **Sobrescritura (`@Override`):** Implementación de `obtenerInformacion()` en `LibroFisico` y `LibroDigital`.
+   - **Sobrecarga:** Método `cambiarEstadoDisponibilidad()` en `Libro`.
+
+---
+
+## Principios SOLID Aplicados
+- **SRP (Single Responsibility Principle):** Separación clara entre modelos de datos y la lógica del servicio (`GestionPrestamosService`).
+- **OCP (Open/Closed Principle):** Extensión del catálogo con nuevos tipos de libros sin alterar la clase base `Libro`.
+- **DIP (Dependency Inversion Principle):** `GestionPrestamosService` depende de la abstracción `NotificacionService` y no de la implementación concreta `EmailNotificacionService`.
